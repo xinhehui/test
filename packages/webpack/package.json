@@ -7,6 +7,7 @@
     "hash": "webpack --progress --hide-modules --config hash/webpack.config.js",
     "tree": "webpack --progress --hide-modules --config treeshaking/webpack.config.js",
     "treep": "webpack --progress --hide-modules --config treeshaking/webpack.config.prod.js",
+    "css": "webpack --progress --hide-modules --config cssmodules/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
     "webpack": "^4.16.5"
   },
   "devDependencies": {
+    "vue-style-loader": "^4.1.2",
     "webpack-cli": "^3.1.0"
   }
 }
