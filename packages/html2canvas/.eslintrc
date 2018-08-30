@@ -1,0 +1,12 @@
+{
+  "extends": "standard",
+  "plugins": [
+    "standard",
+    "promise",
+    "flowtype"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "flowtype/no-weak-types": 2
+  }
+}
