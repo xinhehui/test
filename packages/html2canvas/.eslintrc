@@ -7,6 +7,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "flowtype/delimiter-dangle": 2,
     "flowtype/no-weak-types": 2
   }
 }
