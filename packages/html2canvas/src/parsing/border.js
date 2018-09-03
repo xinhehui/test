@@ -8,6 +8,7 @@ export const BORDER_STYLE = {
   SOLID: 1
 }
 
+// eslint-disable-next-line no-undef
 export type BorderStyle = $Values<typeof BORDER_STYLE>
 
 export type Border = {
