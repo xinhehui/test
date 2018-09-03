@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>line</title>
+</head>
+
+<body>
+  <div class="canvas-warp">
+    <canvas id="canvas1" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+      你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+  </div>
+
+  <div class="canvas-warp">
+    <canvas id="canvas2" style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;">
+        你的浏览器居然不支持Canvas？！赶快换一个吧！！
+    </canvas>
+  </div>
+
+  <script>
+    // window.onload = function(){
+        var canvas = document.getElementById("canvas1");
+        canvas.width = 800;
+        canvas.height = 600;
+        var context = canvas.getContext("2d");
+
+        context.moveTo(100,100);
+        context.lineTo(600,600);
+        context.lineWidth = 5;
+        context.strokeStyle = "#AA394C";
+        context.stroke();
+    // }
+</script>
+
+<script>
+  // window.onload = function(){
+      var canvas = document.getElementById("canvas2");
+      canvas.width = 800;
+      canvas.height = 600;
+      var context = canvas.getContext("2d");
+
+      context.moveTo(100,100);
+      context.lineTo(300,300);
+      context.lineTo(100,500);
+      context.lineWidth = 5;
+      context.strokeStyle = "#AA394C";
+      context.stroke();
+  // }
+</script>
+
+</body>
+
+</html>
