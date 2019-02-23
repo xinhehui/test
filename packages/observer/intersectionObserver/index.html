@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>intersectionObserver</title>
+  <style>
+    .item {
+      width: 200px;
+      height: 400px;
+      line-height: 400px;
+      background-color: orange;
+      margin: 20px auto;
+      text-align: center;
+      color: white;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="item" id="id1">item 1</div>
+  <div class="item" id="id2">item 2</div>
+  <div class="item" id="id3">item 3</div>
+  <div class="item" id="id4">item 4</div>
+  <div class="item" id="id5">item 5</div>
+
+  <script>
+    // var intersectionObserver = new IntersectionObserver(function (entries) {
+    //   //If intersectionRatio is 0, the target is out of view
+    //   //and we do not need to do anything
+    //   if (entries[0].intersectionRatio <= 0) return;
+
+    //   // loadItems(10);
+    //   console.log('Loaded new items');
+    // });
+    // // start observing
+    // intersectionObserver.observe(document.querySelector('#id3'));
+  </script>
+
+  <script>
+    // https://www.zhihu.com/question/67328049/answer/488549036
+    // 可见曝光监测
+    let viewableTimer = {}
+    const VISION_DURATION = 0.3 // 当停留超过这个时间的时候算可见，单位秒
+
+    let _vo
+    function getViewabilityObserver() {
+      return _vo || (_vo = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          let id = entry.target.id
+          if (entry.isIntersecting) {
+            viewableTimer[id] = setTimeout(((id) => {
+              _vo.unobserve(document.querySelector('#' + id))
+              delete viewableTimer[id]
+              //发送可见曝光请求
+              console.log(id)
+            }).bind(null, id), VISION_DURATION * 1000)
+          } else {
+            clearTimeout(viewableTimer[id])
+            delete viewableTimer[id]
+          }
+        })
+      }))
+    }
+
+    getViewabilityObserver().observe(document.getElementById('id3'))
+  </script>
+</body>
+
+</html>

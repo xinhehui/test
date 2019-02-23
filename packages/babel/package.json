@@ -1,0 +1,23 @@
+{
+  "name": "babel-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bad": "babel ./bad/index.js>./bad/index.compiled.js",
+    "cal": "node ./cal/index.js",
+    "replacer": "NODE_ENV=development babel ./node-env-replacer/index.js>./node-env-replacer/index.compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/types": "^7.1.3"
+  },
+  "dependencies": {
+    "big.js": "^5.2.2"
+  }
+}
